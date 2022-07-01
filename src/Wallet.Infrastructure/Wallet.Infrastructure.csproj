@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Wallet.Application\Wallet.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Persistence\Configurations\" />
+    <None Remove="Common\" />
+    <None Remove="Persistence\Interceptors\" />
+    <None Remove="Identity\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Persistence\Configurations\" />
+    <Folder Include="Common\" />
+    <Folder Include="Persistence\Interceptors\" />
+    <Folder Include="Identity\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Wallet.Infrastructure</RootNamespace>
+    <AssemblyName>Wallet.Infrastructure</AssemblyName>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
