@@ -8,6 +8,7 @@ using Wallet.Application.Interfaces.Persistence;
 using Wallet.Infrastructure.Identity;
 using Wallet.Infrastructure.Persistence;
 using Wallet.Infrastructure.Persistence.Interceptors;
+using Wallet.Application.Interfaces;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -34,8 +35,15 @@ public static class ConfigureServices
 
         services.AddScoped<ApplicationDbContextInitializer>();
 
-        //services
-        //    .AddDefaultIdentity<ApplicationUser>();
+        services
+            .AddDefaultIdentity<ApplicationUser>()
+            .AddRoles<IdentityRole>()
+            .AddEntityFrameworkStores<ApplicationDbContext>();
+
+        services.AddIdentityServer()
+            .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+
+        services.AddTransient<IDateTimeService, DateTimeService>
 
         return services;
     }
