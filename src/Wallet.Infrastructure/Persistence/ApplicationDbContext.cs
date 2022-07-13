@@ -1,16 +1,24 @@
 using System.Reflection;
 
-using Microsoft.AspNetCore.Identity;
+using Duende.IdentityServer.EntityFramework.Options;
+
+using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 using Wallet.Application.Interfaces.Persistence;
 using Wallet.Domain.Entities;
+using Wallet.Infrastructure.Identity;
 
 namespace Wallet.Infrastructure.Persistence;
 
-public class ApplicationDbContext : DbContext, IApplicationDbContext
+public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>, IApplicationDbContext
 {
+    public ApplicationDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)
+        : base(options, operationalStoreOptions)
+    {
+    }
+
     public DbSet<TodoItem> TodoItems => Set<TodoItem>();
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -23,11 +31,4 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         base.OnModelCreating(modelBuilder);
     }
-}
-
-public class ApplicationDbContextInitializer
-{
-    private readonly ILogger<ApplicationDbContextInitializer> _logger;
-    private readonly ApplicationDbContext _context;
-    private readonly UserManager<ApplicationUser> _userManager;
 }
