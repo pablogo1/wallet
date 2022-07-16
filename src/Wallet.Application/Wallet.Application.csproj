@@ -26,7 +26,6 @@
     <RootNamespace>Wallet.Application</RootNamespace>
     <AssemblyName>Wallet.Application</AssemblyName>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
 
 </Project>
