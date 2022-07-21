@@ -3,9 +3,16 @@ services:
         build: .
         ports: 
             - "8000:80"
-            - "4433:443"
+            - "8001:443"
         depends_on:
             - db
+        environment:
+            ASPNETCORE_URLS: "https://+;http://+"
+            ASPNETCORE_HTTPS_PORT: 8001
+            ASPNETCORE_Kestrel__Certificates__Default__Password: W@llet123
+            ASPNETCORE_Kestrel__Certificates__Default__Path: "/https/wallet-dev.pfx"
+        volumes:
+            - ~/.aspnet/https:/https/
     db:
         image: "mcr.microsoft.com/mssql/server:2019-latest"
         environment:
