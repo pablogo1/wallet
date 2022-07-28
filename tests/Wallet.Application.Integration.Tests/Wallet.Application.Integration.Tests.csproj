@@ -25,4 +25,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Wallet.BlazorUI\Wallet.BlazorUI.csproj" />
+  </ItemGroup>
+
 </Project>

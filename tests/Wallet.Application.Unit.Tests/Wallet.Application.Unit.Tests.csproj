@@ -25,4 +25,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Wallet.Application\Wallet.Application.csproj" />
+    <ProjectReference Include="..\..\src\Wallet.Infrastructure\Wallet.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
