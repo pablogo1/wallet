@@ -3,3 +3,37 @@
 @{
 }
 <h2>Register Expense</h2>
+
+<form>
+    <div class="mb-3">
+        <label for="account" class="form-label">Account:</label>
+        <select class="form-select" id="account" aria-label="Select an account">
+            <option selected>Select an account</option>
+            <option value="1">Debit Card</option>
+            <option value="2">Cash</option>
+            <option value="3">TC Costco Pablo</option>
+            <option value="4">TC Costco Liz</option>
+            <option value="5">Invex</option>
+            <option value="6">Santander</option>
+            <option value="7">Liverpool</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="expenseDate" class="form-label">Date:</label>
+        <input type="date" class="form-control" id="expenseDate" />
+        <div id="expenseDateHelp" class="form-text">Expense date</div>
+    </div>
+    <div class="mb-3">
+        <label for="account" class="form-label">Category:</label>
+        <select class="form-select" id="account" aria-label="Select an expense category">
+            <option selected>Select a category</option>
+            <option value="1">House rent/mortage</option>
+            <option value="2">Amusement</option>
+            <option value="3">Transporte</option>
+            <option value="4">Deuda</option>
+            <option value="5">Pablito</option>
+            <option value="6">Annelisse</option>
+            <option value="7">Liverpool</option>
+        </select>
+    </div>
+</form>
