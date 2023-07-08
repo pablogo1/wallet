@@ -10,7 +10,7 @@ public static class ConfigureServices
     {
         services.AddDbContext<ExpenseRegistryDbContext>(options =>
         {
-            options.UseSqlite("Data Source=./expense-registry.db;Version=3;");
+            options.UseSqlite("Data Source=./expense-registry.db");
         });
     }
 }

@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/src/WebUI/WebUI.csproj",
+                "${workspaceFolder}/Wallet.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -34,6 +34,28 @@
                 "run",
                 "--project",
                 "${workspaceFolder}/src/WebUI/WebUI.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Unit test",
+            "command": "dotnet",
+            "type": "process",
+            "group": "test",
+            "args": [
+                "test",
+                "${workspaceFolder}/src/ExpenseRegistry.Tests"
+            ]
+        },
+        {
+            "label": "live unit testing",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "test",
+                "--project",
+                "${workspaceFolder}/src/ExpenseRegistry.Tests"
             ],
             "problemMatcher": "$msCompile"
         }

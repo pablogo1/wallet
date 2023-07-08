@@ -1,4 +1,8 @@
+using ExpenseRegistry;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddExpenseRegistry();
 
 // Add services to the container.
 builder.Services.AddRazorPages(options =>
