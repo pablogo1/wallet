@@ -1,5 +1,7 @@
 using ExpenseRegistry;
 
+using MassTransit;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddExpenseRegistry();

@@ -3,12 +3,15 @@ namespace ExpenseRegistry.Features.Setup.Categories;
 using MassTransit;
 using System.Threading.Tasks;
 
-public sealed record CreateCategoryGroupCommand(string Name);
+public sealed record CreateCategoryGroup(string Name);
 
-public class CreateCategoryGroupCommandConsumer : IConsumer<CreateCategoryGroupCommand>
+public class CreateCategoryGroupCommandConsumer : IConsumer<CreateCategoryGroup>
 {
-    public Task Consume(ConsumeContext<CreateCategoryGroupCommand> context)
+    public async Task Consume(ConsumeContext<CreateCategoryGroup> context)
     {
-        throw new NotImplementedException();
+        await context.RespondAsync<NewCategoryGroupViewModel>(new NewCategoryGroupViewModel
+        {
+            Name = context.Message.Name
+        });
     }
 }

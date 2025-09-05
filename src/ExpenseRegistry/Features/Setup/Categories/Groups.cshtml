@@ -5,19 +5,3 @@
 @{}
 <h2>Category Groups</h2>
 
-<h4>Add Category Group</h4>
-<form method="post">
-    <div class="mb-3">
-        <label for="categoryGroupName" 
-            class="form-label"
-            asp-for="NewGroup.Name">Group Name:</label>
-        <input type="text" 
-            class="form-control" 
-            id="categoryGroupName" 
-            name="categoryGroupName"
-            asp-for="NewGroup.Name" />
-    </div>
-    <button type="submit" 
-        class="btn btn-primary"
-        asp-page-handler="AddGroup">Submit</button>
-</form>

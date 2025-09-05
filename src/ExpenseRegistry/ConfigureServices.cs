@@ -1,9 +1,13 @@
-﻿using ExpenseRegistry.Persistence;
+﻿namespace ExpenseRegistry;
+
+using ExpenseRegistry.Features.Setup.Categories;
+using ExpenseRegistry.Persistence;
+
+using MassTransit;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ExpenseRegistry;
 public static class ConfigureServices
 {
     public static void AddExpenseRegistry(this IServiceCollection services)
@@ -12,5 +16,11 @@ public static class ConfigureServices
         {
             options.UseSqlite("Data Source=./expense-registry.db");
         });
+
+        services.AddMediator(cfg =>
+        {
+            cfg.AddConsumer<CreateCategoryGroupCommandConsumer>();
+        });
+
     }
 }
